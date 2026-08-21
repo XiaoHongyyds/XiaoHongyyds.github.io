@@ -3,7 +3,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8" />
-    <title>小红的博客</title>
+    <title>群论，复平面和复变分析 | 小红的博客</title>
     <meta name="author" content="Frostree" />
     <meta name="description" content="Write for something that i might really interested in." />
     <meta name="keywords" content="" />
@@ -47,7 +47,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -157,40 +159,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.png"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>小红的博客</h1>
-                <h3>Blogs written by XiaoHong</h3>
-                <h5>Write for something that i might really interested in.</h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1>群论，复平面和复变分析</h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2026/%E7%BE%A4%E8%AE%BA%EF%BC%8C%E5%A4%8D%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%A4%8D%E5%8F%98%E5%88%86%E6%9E%90/">
-        <h2 class="post-title">群论，复平面和复变分析</h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -200,10 +173,9 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="群论"><a href="#群论" class="headerlink" title="群论"></a>群论</h1><h2 id="群论：研究对称与结构的语言"><a href="#群论：研究对称与结构的语言" class="headerlink" title="群论：研究对称与结构的语言"></a>群论：研究对称与结构的语言</h2><p>想象一下，你有一套固定的“动作”可以操作某个对象，并且这些动作组合起来总有规律可循。群论就像研究“合法操作”的数学。比如：魔方的转动，时钟的指针转动。</p>
+    
+    <div class="content" v-pre>
+        <h1 id="群论"><a href="#群论" class="headerlink" title="群论"></a>群论</h1><h2 id="群论：研究对称与结构的语言"><a href="#群论：研究对称与结构的语言" class="headerlink" title="群论：研究对称与结构的语言"></a>群论：研究对称与结构的语言</h2><p>想象一下，你有一套固定的“动作”可以操作某个对象，并且这些动作组合起来总有规律可循。群论就像研究“合法操作”的数学。比如：魔方的转动，时钟的指针转动。</p>
 <h3 id="群的定义"><a href="#群的定义" class="headerlink" title="群的定义"></a>群的定义</h3><p>令有集合 $G$ 及 $\forall x,y,z\in G$ ，在其上定义一个封闭的二元映射&#x2F;运算，集合中任意两个元素经过该二元运算所得结果依然属于一个群：</p>
 <p> $<em>: G \times G \to G$ ， $(x,y) \mapsto x</em>y$ </p>
 <p>该运算满足：</p>
@@ -266,58 +238,13 @@
 <p> $\partial: C^\infty(\mathbb{C}) \to C^\infty(\mathbb{C})$ ， $f \mapsto \partial f &#x3D; \frac{df(x)}{dx}$ </p>
 <p>在所有的光滑函数中，我们希望有一种特殊的函数可以满足：一个函数的导数等于它自身，而复指数函数就满足这个条件，即： $\partial e^x &#x3D; e^x$ ，将级数展开即可证明。</p>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2026/%E7%BE%A4%E8%AE%BA%EF%BC%8C%E5%A4%8D%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%A4%8D%E5%8F%98%E5%88%86%E6%9E%90/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
-    
-    <span class="current">1</span>
-    
-    
-    
-    
-</div>
-
     </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">Frostree</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/little-red">My Cnblog</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://maple276.github.io/">Maple276</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
+    
+    
+    
+    
+    
     
 </div>
 
@@ -349,6 +276,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
