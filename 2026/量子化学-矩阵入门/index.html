@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <title> | 小红的博客</title>
+    <meta name="author" content="Frostree" />
+    <meta name="description" content="Write for something that i might really interested in." />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/load.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>小红的博客</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;小红的博客</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1></h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/8/22
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="矩阵的由来、定义和运算方法"><a href="#矩阵的由来、定义和运算方法" class="headerlink" title="矩阵的由来、定义和运算方法"></a>矩阵的由来、定义和运算方法</h2><h3 id="矩阵由来"><a href="#矩阵由来" class="headerlink" title="矩阵由来"></a>矩阵由来</h3><p>矩阵的概念源于19世纪50年代英国数学家阿瑟·凯莱（Arthur Cayley）和詹姆斯·西尔维斯特（James J. Sylvester）的研究。凯莱在分析坐标变换时发现，不同坐标系间的变量转换可通过特定数组简洁表示。</p>
+<img src="矩阵入门.assets/image-20260109101032087.png" alt="image-20260109101032087" style="zoom: 33%;" />
+
+<p>例如，在下图的平面直角坐标系$xOy$中任选点$P(x,y)$，随后将坐标系逆时针绕原点$O$旋转$\theta$得到另一同原点坐标系，在该系中$(x’Oy’)$中变为$P(x’,y’)$，其变换关系如下：<br>$$<br>\begin{aligned}<br>x’&amp;&#x3D;\overline{OB}&#x3D;\overline{OA}+\overline{AB}\<br>&amp;&#x3D;\overline{OC}\cos\theta+\overline{PC}\sin\theta\<br>&amp;&#x3D;x\cos\theta+y\sin\theta<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>y’&amp;&#x3D;\overline{PB}&#x3D;\overline{PD}-\overline{AC}\<br>&amp;&#x3D;\overline{PC}\cos\theta-\overline{OC}\sin\theta\<br>&amp;&#x3D;-x\sin\theta+y\cos\theta<br>\end{aligned}<br>$$</p>
+<p>这套从$P(x,y)$变换为$P(x’,y’)$可写成$x’&#x3D;ax+by$，$y’&#x3D;cx+dy$；我们可以用一组数组代表该变换：<br>$$<br>\begin{bmatrix}<br>a&amp;b\c&amp;d<br>\end{bmatrix}<br>$$<br>若再经一次变换到$P(x’’, y’’)$可继续写成$x’’&#x3D;Ax’+By’$，$y’’&#x3D;Cx’+Dy’$，新坐标与初始坐标之间有代数关系：<br>$$<br>x’’&#x3D;(Aa+Bc)x+(Ab+Bd)y\<br>y’’&#x3D;(Ca+Dc)x+(Cb+Dd)y<br>$$<br>新系数可通过两组数组的特定运算得到：<br>$$<br>\begin{bmatrix}<br>a&amp;b\c&amp;d<br>\end{bmatrix}<br>\begin{bmatrix}<br>A&amp;B\C&amp;D<br>\end{bmatrix}<br>&#x3D;\begin{bmatrix}<br>Aa+Bc&amp;Ab+Bd\Ca+Dc&amp;Cb+Dd<br>\end{bmatrix}<br>$$</p>
+<p>凯莱将这种数组定义为“矩阵”，并确立了矩阵乘法规则：前一矩阵的行与后一矩阵的列对应元素相乘再求和，恰好匹配坐标变换的复合结果。 </p>
+<h3 id="矩阵定义"><a href="#矩阵定义" class="headerlink" title="矩阵定义"></a>矩阵定义</h3><p>从定义来看，矩阵是按矩形排列的一组数<br>$$<br>\bold{A}\equiv[a_{ij}]\equiv<br>\begin{bmatrix}<br>a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1m}\<br>a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2m}\<br>&amp;&amp;\cdots&amp;\<br>a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nm}\<br>\end{bmatrix}<br>$$</p>
+<p>其中$i$代表行数、$j$代表列数，这样的有$n$行$m$列的矩阵称为$n×m$矩阵，内部的每个数叫矩阵元，用$a_{ij}$表示第$i$行第$j$列的矩阵元。矩阵通常用大写黑体字$\bold{A}$或矩阵元加括号$[a_{ij}]$表示，有时会标注行数和列数$[a_{ij}]_{n\times m}$。 </p>
+<p>###矩阵运算</p>
+<h4 id="矩阵相等"><a href="#矩阵相等" class="headerlink" title="矩阵相等"></a>矩阵相等</h4><p>两个矩阵  $\bold A &#x3D; [a_{ij}]$  和  $\bold B &#x3D; [b_{ij}]$  相等（记为  $\bold A &#x3D;\bold B$ ），需同时满足两个条件：</p>
+<ol>
+<li><p>行数和列数完全相同（即同型矩阵）；</p>
+</li>
+<li><p>所有对应位置的矩阵元相等，即  $a_{ij} &#x3D; b_{ij}$ （对所有  $i,j$  成立）。</p>
+</li>
+</ol>
+<h4 id="矩阵加减法"><a href="#矩阵加减法" class="headerlink" title="矩阵加减法"></a>矩阵加减法</h4><p>矩阵的加减法仅适用于行数、列数均相同的 <strong>同型矩阵</strong>，运算结果也为同型矩阵  $\bold C &#x3D; \bold A \pm \bold B$ ，其矩阵元满足：</p>
+<p> $c_{ij} &#x3D; a_{ij} \pm b_{ij}$ </p>
+<p>已知  $A &#x3D; \begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$ ， $B &#x3D; \begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}$ ，则：<br>$$<br>\begin{aligned}<br>A + B &amp;&#x3D; \begin{bmatrix} a+A &amp; b+B \ c+C &amp; d+D \end{bmatrix} \\<br>A - B &amp;&#x3D; \begin{bmatrix} a-A &amp; b-B \ c-C &amp; d-D \end{bmatrix}<br>\end{aligned}<br>$$</p>
+<p>矩阵的加减法满足：</p>
+<ol>
+<li><p>交换律： $\bold A + \bold B &#x3D; \bold B + \bold A$ ；</p>
+</li>
+<li><p>结合律： $\bold A + (\bold B + \bold C) &#x3D; (\bold A + \bold B) + \bold C$ ；</p>
+</li>
+<li><p>与数乘的分配律： $\alpha(\bold A + \bold B) &#x3D; \alpha \bold A + \alpha \bold B$ （ $\alpha$  为任意常数）。</p>
+</li>
+</ol>
+<h4 id="矩阵数乘"><a href="#矩阵数乘" class="headerlink" title="矩阵数乘"></a>矩阵数乘</h4><p>设  $\lambda$  为任意常数，矩阵  $\bold A &#x3D; [a_{ij}]$  与  $\lambda$  的乘积（记为  $\lambda \bold A$ ）为同型矩阵，其矩阵元变为常数乘以矩阵原先各个位置的元素： $(\lambda \bold A)<em>{ij} &#x3D; \lambda \cdot a</em>{ij}$ </p>
+<p>矩阵的数乘满足：</p>
+<ol>
+<li>交换律： $\lambda \bold A &#x3D; \bold A \lambda$ ；</li>
+<li>分配律： $(\alpha + \beta)\bold A &#x3D; \alpha \bold A + \beta \bold A$ （ $\alpha,\beta$  为常数）；</li>
+<li>结合律： $\alpha(\beta \bold A) &#x3D; (\alpha\beta)\bold A$ 。</li>
+</ol>
+<h4 id="矩阵与矩阵的乘法"><a href="#矩阵与矩阵的乘法" class="headerlink" title="矩阵与矩阵的乘法"></a>矩阵与矩阵的乘法</h4><p>设矩阵  $\bold A$  为  $n \times m$  矩阵（ $n$  行  $m$  列），矩阵  $\bold B$  为  $m \times k$  矩阵，则乘积  $\bold C &#x3D; \bold A \bold B$  为  $n \times k$  矩阵，其矩阵元为 $\bold A$  的第  $i$  行与  $\bold B$  的第  $j$  列对应元素相乘后求和：</p>
+<p>$$<br> c_{ij}&#x3D;\sum_{p&#x3D;1}^m a_{ip}b_{pj}<br>$$</p>
+<p>以 $2×3 $ 矩阵和 $3×2$ 矩阵乘法为例：</p>
+<p>已知  $\bold A &#x3D; \begin{bmatrix} a &amp; b &amp; c \ d &amp; e &amp; f \end{bmatrix}$ ， $\bold B &#x3D; \begin{bmatrix} A &amp; B \ C &amp; D \ E &amp; F \end{bmatrix}$ ，则：</p>
+<p>$\mathbf{AB}$ 为 $2 \times 2$矩阵<br>$$<br>\mathbf{AB} &#x3D; \begin{bmatrix}<br>aA + bC + cE &amp; aB + bD + cF \<br>dA + eC + fE &amp; dB + eD + fF<br>\end{bmatrix}.<br>$$</p>
+<p>$\mathbf{BA}$ 为 $3 \times 3$矩阵<br>$$<br>\mathbf{BA} &#x3D; \begin{bmatrix}<br>Aa + Bd &amp; Ab + Be &amp; Ac + Bf \<br>Ca + Dd &amp; Cb + De &amp; Cc + Df \<br>Ea + Fd &amp; Eb + Fe &amp; Ec + Ff<br>\end{bmatrix}.<br>$$<br><strong>矩阵的乘法满足以下规律：</strong></p>
+<ol>
+<li>可乘条件：前矩阵的 <strong>列数</strong> &#x3D; 后矩阵的 <strong>行数</strong>，否则无法运算；</li>
+<li>结果形状： $n \times m$  矩阵与  $m \times k$  矩阵相乘 ，结果为 $n \times k$  矩阵；</li>
+<li>不满足交换律：一般情况下  $\bold{AB} \neq \bold{BA}$ ；</li>
+<li>满足结合律： $\bold{ {(AB)C &#x3D; A(BC)} }$ 。</li>
+</ol>
+<h4 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h4><p>将矩阵  $\bold A &#x3D; [a_{ij}]$  的 <strong>行与列互换</strong>，得到的新矩阵称为  $\bold A$  的转置矩阵，记为  $\bold A^T$  或  $\tilde{\bold A}$ ，其矩阵元满足：</p>
+<p> $(\bold A^T)<em>{ij} &#x3D; a</em>{ji}$ </p>
+<p>以$2\times3$ 矩阵  $\bold A &#x3D; \begin{bmatrix} a &amp; b &amp; c \ d &amp; e &amp; f \end{bmatrix}$ 为例，则： $\bold A^T &#x3D; \begin{bmatrix} a &amp; d \ b &amp; e \ c &amp; f \end{bmatrix}$ </p>
+<p><strong>转置矩阵满足以下规律：</strong></p>
+<ol>
+<li><p>两次转置矩阵等于其自身 $(\bold A^T)^T &#x3D; \bold A$ ；</p>
+</li>
+<li><p>矩阵相加后的转置矩阵等于两转置矩阵的相加 $(\bold A + \bold B)^T &#x3D; \bold A^T + \bold B^T$ ；</p>
+</li>
+<li><p>矩阵数乘的转置矩阵等于其转置矩阵的数乘 $(\lambda \bold A)^T &#x3D; \lambda \bold A^T$ ；</p>
+</li>
+<li><p>乘积的转置等于转置的反向乘积 $(\bold A\bold B)^T &#x3D; \bold B^T \bold A^T$ 。</p>
+</li>
+</ol>
+<h4 id="转置共轭矩阵"><a href="#转置共轭矩阵" class="headerlink" title="转置共轭矩阵"></a>转置共轭矩阵</h4><p>先对矩阵  $\bold A$  取转置  $\bold A^T$ ，再对每个矩阵元取 <strong>共轭复数</strong>，得到的新矩阵称为转置共轭矩阵或厄米(Hermite)共轭矩阵（记为  $\bold A^H$  或  $\bold A^\dagger$ ），其矩阵元满足：$(\bold A^H)<em>{ij} &#x3D; a</em>{ji}^<em>$ ，$a^</em>$ 表示复数 $a$  的共轭，实数的共轭为其本身。</p>
+<p>以$2\times2$ 复矩阵  $\bold A &#x3D; \begin{bmatrix} 1 &amp; 2i \ i &amp; 2 \end{bmatrix}$ 为例，则其转置共轭矩阵： $\bold A^H &#x3D; \begin{bmatrix} 1^* &amp; i^* \ (2i)^* &amp; 2^* \end{bmatrix} &#x3D; \begin{bmatrix} 1 &amp; -i \ -2i &amp; 2 \end{bmatrix}$ 。</p>
+<p><strong>转置共轭矩阵满足以下规律：</strong></p>
+<ol>
+<li>两次转置共轭矩阵等于其自身 $(\bold A^H)^H &#x3D; \bold A$ ；</li>
+<li>乘积的转置共轭 &#x3D; 转置共轭的反向乘积$(\bold A\bold B)^H &#x3D; \bold B^H \bold A^H$ 。</li>
+</ol>
+<h4 id="矩阵的分块运算"><a href="#矩阵的分块运算" class="headerlink" title="矩阵的分块运算"></a>矩阵的分块运算</h4><p>将高阶矩阵可分割为若干低阶子矩阵，把子矩阵当作单个矩阵元进行运算，简化高阶矩阵的计算。这一过程中各个子矩阵依旧满足上述矩阵运算中矩阵元的运算规律。</p>
+<p>以$3\times3$ 矩阵$\bold A$为例，对其进行分块的一种方法如下：<br>$$<br>\begin{bmatrix}<br>a_{11}&amp;a_{12}&amp;a_{13}\<br>a_{21}&amp;a_{22}&amp;a_{23}\<br>a_{31}&amp;a_{32}&amp;a_{33}\<br>\end{bmatrix}<br>\equiv<br>\begin{bmatrix}<br>a_{11}&amp; \begin{bmatrix}a_{12}&amp; a_{13}\end{bmatrix}\<br>\begin{bmatrix}a_{21}\a_{31} \end{bmatrix}&amp;<br>\begin{bmatrix}<br>a_{22}&amp;a_{23}\<br>a_{32}&amp;a_{33}\end{bmatrix}<br>\end{bmatrix}<br>$$</p>
+<h2 id="行矩阵、列矩阵和Dirac符号"><a href="#行矩阵、列矩阵和Dirac符号" class="headerlink" title="行矩阵、列矩阵和Dirac符号"></a>行矩阵、列矩阵和Dirac符号</h2><p>行矩阵和列矩阵是矩阵的特殊形式。在$n$维空间中的矢量有$n$个相互正交的分量，正好可用一个行矩阵或列矩阵表示。行矩阵和列矩阵其核心本质是<strong>矢量的矩阵化表示</strong>——因完全满足矢量的定义、运算规则和物理意义，在数学与量子化学中被直接视为矢量（行矢、列矢），是连接矩阵运算与矢量空间的关键桥梁。</p>
+<h3 id="行矩阵，行矢"><a href="#行矩阵，行矢" class="headerlink" title="行矩阵，行矢"></a>行矩阵，行矢</h3><p>仅有<strong>一行</strong>的矩阵称为行矩阵（Row Matrix），元素按水平方向排列，对应矢量的“行矢”（Row Vector）。 Dirac 把行矢叫做左矢(bra vector),用$\bra \quad$ 表示。</p>
+<p>设行矩阵有  $n$  个元素，其一般形式为：</p>
+<p> $\bold{A} \equiv [a_i] \equiv \left[ a_1 \quad a_2\quad \cdots\quad a_n \right]\equiv  \langle\bold A|^*$ </p>
+<h3 id="列矩阵，列矢"><a href="#列矩阵，列矢" class="headerlink" title="列矩阵，列矢"></a>列矩阵，列矢</h3><p>仅有<strong>一列</strong>的矩阵称为列矩阵（Column Matrix），元素按垂直方向排列，对	应矢量的“列矢”（Column Vector）。Dirac 把列矢叫做右矢(ket vector),用$\ket \quad$ 表示，左矢和右矢互为转置共轭矩阵</p>
+<p>设列矩阵有  $n$  个元素，其一般形式为：</p>
+<p> $\bold{B} \equiv {b_i}\equiv\begin{bmatrix} b_1 \ b_2 \ \vdots \ b_n \end{bmatrix}\equiv |\bold B\rangle \equiv \left[ b_1 \quad b_2 \quad \cdots \quad b_n \right]^T$ </p>
+<h3 id="行-列矩阵的矢量性"><a href="#行-列矩阵的矢量性" class="headerlink" title="行&#x2F;列矩阵的矢量性"></a>行&#x2F;列矩阵的矢量性</h3><p>矢量的本质是“<strong>具有确定分量、满足线性运算规则的有序集合</strong>”，而行矩阵和列矩阵完全契合这一本质。</p>
+<p>矢量的核心是“有序分量”：无论是二维矢量  $\vec{v} &#x3D; (v_x, v_y)$ 、三维矢量  $\vec{w} &#x3D; (w_x, w_y, w_z)$ ，还是更高维的抽象矢量，本质都是“按固定顺序排列的一组数”。而行&#x2F;列矩阵的元素天然满足“有序性”：行矩阵  $\left[ a_1 \quad a_2 \quad \cdots \quad a_n \right]$  中， $a_1, a_2, …, a_n$  是按“左到右”顺序排列的分量；列矩阵 ${b_1 \quad b_2 \quad \dots \quad b_n}$  中， $b_1, b_2, …, b_n$  是按“上到下”顺序排列的分量。</p>
+<p>矢量的加减、数乘，内积与行&#x2F;列矩阵的运算规则完全一致，满足矢量空间的公理； 同时两种运算都满足交换律（ $\vec{v} + \vec{w} &#x3D; \vec{w} + \vec{v}$ ）、结合律（ $k(\vec{v} + \vec{w}) &#x3D; k\vec{v} + k\vec{w}$ ）。</p>
+<p><strong>在后面我们会从平面旋转系$SO(2)$中介绍列矩阵与矢量的同构性。</strong></p>
+<p>虽然行向量和列向量作为向量空间是同构的，但它们在参与矩阵乘法时扮演不同的角色，这体现了它们在线性映射中的不同地位。</p>
+<h4 id="列向量（列矩阵）通常被视为矢量本身。"><a href="#列向量（列矩阵）通常被视为矢量本身。" class="headerlink" title="列向量（列矩阵）通常被视为矢量本身。"></a><strong>列向量</strong>（列矩阵）通常被视为<strong>矢量本身</strong>。</h4><p>线性变换 $T: \mathbb{R}^n \to \mathbb{R}^m$可以用一个$ m \times n $矩阵 $\bold A$表示。对列向量 $\mathbf{x} \in \mathbb{R}^n$，变换结果为：</p>
+<p>$$<br>\mathbf{y} &#x3D; \bold A \mathbf{x}<br>$$</p>
+<p>这里 $\mathbf{x}$ 是 $n \times 1$ 列矩阵，$\mathbf{y}$ 是 $m \times 1$列矩阵。</p>
+<h4 id="行向量（行矩阵）通常被视为对偶矢量（线性泛函）。"><a href="#行向量（行矩阵）通常被视为对偶矢量（线性泛函）。" class="headerlink" title="行向量（行矩阵）通常被视为对偶矢量（线性泛函）。"></a><strong>行向量</strong>（行矩阵）通常被视为<strong>对偶矢量</strong>（线性泛函）。</h4><p>一个行向量 $\mathbf{u}^T$（$1 \times n$）可以作用在列向量 $\mathbf{v}$（$n \times 1$）上，给出内积（标量）：<br>$$<br>\mathbf{u}^T \mathbf{v} &#x3D; u_1 v_1 + u_2 v_2 + \dots + u_n v_n<br>$$<br>如果将行向量本身看作矢量，那么它作用于列向量可以视为求内积；但若将行向量视为对偶空间的元素，则这种作用就是自然的配对。</p>
+<h4 id="行矢列矢的内积与双线性形式"><a href="#行矢列矢的内积与双线性形式" class="headerlink" title="行矢列矢的内积与双线性形式"></a><strong>行矢列矢的内积与双线性形式</strong></h4><p>在实数域上，两个矢量 $\mathbf{u}$ 和 $\mathbf{v}$ 的内积通常写为 $\mathbf{u} \cdot \mathbf{v}$。用矩阵表示时，需要将其中一个转置：</p>
+<p>$$<br>\mathbf{u} \cdot \mathbf{v} &#x3D; \mathbf{u}^T \mathbf{v}<br>$$</p>
+<p>这里 $\mathbf{u}^T$ 是行向量，$\mathbf{v} $是列向量。因此内积运算自然地混合了行和列的形式。</p>
+<p>如果两个都是列向量，则内积写作$ \mathbf{u}^T \mathbf{v}$；如果两个都是行向量，则$\mathbf{u} \mathbf{v}^T$ 得到一个矩阵，是外积。所以通常约定矢量默认是列向量，内积通过转置实现。</p>
+<h3 id="行矩阵、列矩阵的运算"><a href="#行矩阵、列矩阵的运算" class="headerlink" title="行矩阵、列矩阵的运算"></a>行矩阵、列矩阵的运算</h3><p>我们先定义两个列矩阵：</p>
+<p>$|\bold X\rangle&#x3D;\bold X&#x3D;{x_i},\quad |{\bold Y}\rangle&#x3D;\bold Y&#x3D;{y_i}$</p>
+<p>根据前文中行矩阵、列矩阵的定义，我们可以得到：<br>$$<br>\langle\bold X|&#x3D;|\bold X\rangle^H&#x3D;[x_i^*]<br>$$</p>
+<h4 id="左矢与右矢的乘积"><a href="#左矢与右矢的乘积" class="headerlink" title="左矢与右矢的乘积"></a>左矢与右矢的乘积</h4><p>在$n$维复空间中，矢量$\bold X$ 和矢量$\bold Y$的标积定义为：<br>$$<br>\bold {\langle X | {Y} }\rangle&#x3D;\bold X ^H \bold Y&#x3D;[x_i^*]{y_i}&#x3D;\sum_{i&#x3D;1}^n x_i^*y_i&#x3D;\bold {\langle Y | { {X} }}\rangle^H<br>$$<br>当矢量$\bold X$ 和矢量$\bold Y$的标积$\bold {\langle X | {Y} }\rangle&#x3D;0$时,称矢量$\bold X$ 和矢量$\bold Y$<strong>正交</strong>；当一组矢量中任何两个都互相正交时,称为正交矢量组。</p>
+<h4 id="右矢与左矢的乘积"><a href="#右矢与左矢的乘积" class="headerlink" title="右矢与左矢的乘积"></a>右矢与左矢的乘积</h4><p>$n$维右矢和$n$维左矢相乘得到一个$n$阶方针，对应矢量的张量积<br>$$<br>\bold {|X\rangle  \langle {Y} }|&#x3D;\begin{bmatrix}y_1\y_2\\cdots\y_n\end{bmatrix}\begin{bmatrix}x^<em>_1&amp;x^</em>_2\cdots&amp;x^<em>_n\end{bmatrix}&#x3D;<br>\begin{bmatrix}y_1x_1^</em>&amp;y_1x_2^<em>&amp;\cdots &amp;y_1x_n^</em>\y_2x_1^<em>&amp;y_2x_2^</em>&amp;\cdots &amp;y_2x_n^<em>\ &amp; &amp;\cdots &amp;\y_nx_1^</em>&amp;y_nx_2^<em>&amp;\cdots &amp;y_nx_n^</em>\end{bmatrix}<br>$$</p>
+<h4 id="矢量的长度（模）"><a href="#矢量的长度（模）" class="headerlink" title="矢量的长度（模）"></a>矢量的长度（模）</h4><p>标积$\bold {\langle X | {X} }\rangle$的平方根称为矢量$\bold X$的长度或模（norm），以$\norm{\bold X}$表示：<br>$$<br>\norm{\bold X}&#x3D;\sqrt{\bold {\langle X | {X} }\rangle}&#x3D;\sqrt{\sum_{i&#x3D;1}^n x_ix_i^*}<br>$$<br>长度为$1$的矢量称为单位矢量。如一组矢量$\bold X_i$ 长度均为$1$且互相正交，则称为 <strong>正交归一矢量组</strong></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2026 - 2026 小红的博客
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Frostree
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

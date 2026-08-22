@@ -330,7 +330,7 @@
 }
 #loading {
     align-items: center;
-    background: #fff;
+    background: #FEE0AB;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -349,7 +349,7 @@
 }
 #loading img {
     border-radius: 0;
-    height: 50px;
+    height: 128px;
 }
 #loading-circle {
     align-items: center;

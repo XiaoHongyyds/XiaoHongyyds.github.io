@@ -3,7 +3,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8" />
-    <title>小红的博客</title>
+    <title> | 小红的博客</title>
     <meta name="author" content="Frostree" />
     <meta name="description" content="Write for something that i might really interested in." />
     <meta name="keywords" content="" />
@@ -47,7 +47,9 @@
 
 
 
-<script src="/js/lib/home.js"></script>
+
+
+
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -157,40 +159,11 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="home-head">
-    <div
-        id="home-background"
-        ref="homeBackground"
-        data-images="/images/background.png"
-    ></div>
-    <div id="home-info" @click="homeClick">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>小红的博客</h1>
-                <h3>Blogs written by XiaoHong</h3>
-                <h5>Write for something that i might really interested in.</h5>
-            </div>
-        </span>
+            <div class="article">
+    <div>
+        <h1></h1>
     </div>
-</div>
-<div
-    id="home-posts-wrap"
-    ref="homePostsWrap"
-    true
->
-    <div id="home-posts">
-        
-
-<div class="post">
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%9F%A9%E9%98%B5%E5%85%A5%E9%97%A8/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
+    <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
@@ -200,137 +173,9 @@
         
         
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h1><h2 id="矩阵的由来、定义和运算方法"><a href="#矩阵的由来、定义和运算方法" class="headerlink" title="矩阵的由来、定义和运算方法"></a>矩阵的由来、定义和运算方法</h2><h3 id="矩阵由来"><a href="#矩阵由来" class="headerlink" title="矩阵由来"></a>矩阵由来</h3><p>矩阵的概念源于19世纪50年代英国数学家阿瑟·凯莱（Arthur Cayley）和詹姆斯·西尔维斯特（James J. Sylvester）的研究。凯莱在分析坐标变换时发现，不同坐标系间的变量转换可通过特定数组简洁表示。</p>
-<img src="矩阵入门.assets/image-20260109101032087.png" alt="image-20260109101032087" style="zoom: 33%;" />
-
-<p>例如，在下图的平面直角坐标系$xOy$中任选点$P(x,y)$，随后将坐标系逆时针绕原点$O$旋转$\theta$得到另一同原点坐标系，在该系中$(x’Oy’)$中变为$P(x’,y’)$，其变换关系如下：<br>$$<br>\begin{aligned}<br>x’&amp;&#x3D;\overline{OB}&#x3D;\overline{OA}+\overline{AB}\<br>&amp;&#x3D;\overline{OC}\cos\theta+\overline{PC}\sin\theta\<br>&amp;&#x3D;x\cos\theta+y\sin\theta<br>\end{aligned}<br>$$</p>
-<p>$$<br>\begin{aligned}<br>y’&amp;&#x3D;\overline{PB}&#x3D;\overline{PD}-\overline{AC}\<br>&amp;&#x3D;\overline{PC}\cos\theta-\overline{OC}\sin\theta\<br>&amp;&#x3D;-x\sin\theta+y\cos\theta<br>\end{aligned}<br>$$</p>
-<p>这套从$P(x,y)$变换为$P(x’,y’)$可写成$x’&#x3D;ax+by$，$y’&#x3D;cx+dy$；我们可以用一组数组代表该变换：<br>$$<br>\begin{bmatrix}<br>a&amp;b\c&amp;d<br>\end{bmatrix}<br>$$<br>若再经一次变换到$P(x’’, y’’)$可继续写成$x’’&#x3D;Ax’+By’$，$y’’&#x3D;Cx’+Dy’$，新坐标与初始坐标之间有代数关系：<br>$$<br>x’’&#x3D;(Aa+Bc)x+(Ab+Bd)y\<br>y’’&#x3D;(Ca+Dc)x+(Cb+Dd)y<br>$$<br>新系数可通过两组数组的特定运算得到：<br>$$<br>\begin{bmatrix}<br>a&amp;b\c&amp;d<br>\end{bmatrix}<br>\begin{bmatrix}<br>A&amp;B\C&amp;D<br>\end{bmatrix}<br>&#x3D;\begin{bmatrix}<br>Aa+Bc&amp;Ab+Bd\Ca+Dc&amp;Cb+Dd<br>\end{bmatrix}<br>$$</p>
-<p>凯莱将这种数组定义为“矩阵”，并确立了矩阵乘法规则：前一矩阵的行与后一矩阵的列对应元素相乘再求和，恰好匹配坐标变换的复合结果。 </p>
-<h3 id="矩阵定义"><a href="#矩阵定义" class="headerlink" title="矩阵定义"></a>矩阵定义</h3><p>从定义来看，矩阵是按矩形排列的一组数<br>$$<br>\bold{A}\equiv[a_{ij}]\equiv<br>\begin{bmatrix}<br>a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1m}\<br>a_{21}&amp;a_{22}&amp;\cdots&amp;a_{2m}\<br>&amp;&amp;\cdots&amp;\<br>a_{n1}&amp;a_{n2}&amp;\cdots&amp;a_{nm}\<br>\end{bmatrix}<br>$$</p>
-<p>其中$i$代表行数、$j$代表列数，这样的有$n$行$m$列的矩阵称为$n×m$矩阵，内部的每个数叫矩阵元，用$a_{ij}$表示第$i$行第$j$列的矩阵元。矩阵通常用大写黑体字$\bold{A}$或矩阵元加括号$[a_{ij}]$表示，有时会标注行数和列数$[a_{ij}]_{n\times m}$。 </p>
-<p>###矩阵运算</p>
-<h4 id="矩阵相等"><a href="#矩阵相等" class="headerlink" title="矩阵相等"></a>矩阵相等</h4><p>两个矩阵  $\bold A &#x3D; [a_{ij}]$  和  $\bold B &#x3D; [b_{ij}]$  相等（记为  $\bold A &#x3D;\bold B$ ），需同时满足两个条件：</p>
-<ol>
-<li><p>行数和列数完全相同（即同型矩阵）；</p>
-</li>
-<li><p>所有对应位置的矩阵元相等，即  $a_{ij} &#x3D; b_{ij}$ （对所有  $i,j$  成立）。</p>
-</li>
-</ol>
-<h4 id="矩阵加减法"><a href="#矩阵加减法" class="headerlink" title="矩阵加减法"></a>矩阵加减法</h4><p>矩阵的加减法仅适用于行数、列数均相同的 <strong>同型矩阵</strong>，运算结果也为同型矩阵  $\bold C &#x3D; \bold A \pm \bold B$ ，其矩阵元满足：</p>
-<p> $c_{ij} &#x3D; a_{ij} \pm b_{ij}$ </p>
-<p>已知  $A &#x3D; \begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$ ， $B &#x3D; \begin{bmatrix} A &amp; B \ C &amp; D \end{bmatrix}$ ，则：<br>$$<br>\begin{aligned}<br>A + B &amp;&#x3D; \begin{bmatrix} a+A &amp; b+B \ c+C &amp; d+D \end{bmatrix} \\<br>A - B &amp;&#x3D; \begin{bmatrix} a-A &amp; b-B \ c-C &amp; d-D \end{bmatrix}<br>\end{aligned}<br>$$</p>
-<p>矩阵的加减法满足：</p>
-<ol>
-<li><p>交换律： $\bold A + \bold B &#x3D; \bold B + \bold A$ ；</p>
-</li>
-<li><p>结合律： $\bold A + (\bold B + \bold C) &#x3D; (\bold A + \bold B) + \bold C$ ；</p>
-</li>
-<li><p>与数乘的分配律： $\alpha(\bold A + \bold B) &#x3D; \alpha \bold A + \alpha \bold B$ （ $\alpha$  为任意常数）。</p>
-</li>
-</ol>
-<h4 id="矩阵数乘"><a href="#矩阵数乘" class="headerlink" title="矩阵数乘"></a>矩阵数乘</h4><p>设  $\lambda$  为任意常数，矩阵  $\bold A &#x3D; [a_{ij}]$  与  $\lambda$  的乘积（记为  $\lambda \bold A$ ）为同型矩阵，其矩阵元变为常数乘以矩阵原先各个位置的元素： $(\lambda \bold A)<em>{ij} &#x3D; \lambda \cdot a</em>{ij}$ </p>
-<p>矩阵的数乘满足：</p>
-<ol>
-<li>交换律： $\lambda \bold A &#x3D; \bold A \lambda$ ；</li>
-<li>分配律： $(\alpha + \beta)\bold A &#x3D; \alpha \bold A + \beta \bold A$ （ $\alpha,\beta$  为常数）；</li>
-<li>结合律： $\alpha(\beta \bold A) &#x3D; (\alpha\beta)\bold A$ 。</li>
-</ol>
-<h4 id="矩阵与矩阵的乘法"><a href="#矩阵与矩阵的乘法" class="headerlink" title="矩阵与矩阵的乘法"></a>矩阵与矩阵的乘法</h4><p>设矩阵  $\bold A$  为  $n \times m$  矩阵（ $n$  行  $m$  列），矩阵  $\bold B$  为  $m \times k$  矩阵，则乘积  $\bold C &#x3D; \bold A \bold B$  为  $n \times k$  矩阵，其矩阵元为 $\bold A$  的第  $i$  行与  $\bold B$  的第  $j$  列对应元素相乘后求和：</p>
-<p>$$<br> c_{ij}&#x3D;\sum_{p&#x3D;1}^m a_{ip}b_{pj}<br>$$</p>
-<p>以 $2×3 $ 矩阵和 $3×2$ 矩阵乘法为例：</p>
-<p>已知  $\bold A &#x3D; \begin{bmatrix} a &amp; b &amp; c \ d &amp; e &amp; f \end{bmatrix}$ ， $\bold B &#x3D; \begin{bmatrix} A &amp; B \ C &amp; D \ E &amp; F \end{bmatrix}$ ，则：</p>
-<p>$\mathbf{AB}$ 为 $2 \times 2$矩阵<br>$$<br>\mathbf{AB} &#x3D; \begin{bmatrix}<br>aA + bC + cE &amp; aB + bD + cF \<br>dA + eC + fE &amp; dB + eD + fF<br>\end{bmatrix}.<br>$$</p>
-<p>$\mathbf{BA}$ 为 $3 \times 3$矩阵<br>$$<br>\mathbf{BA} &#x3D; \begin{bmatrix}<br>Aa + Bd &amp; Ab + Be &amp; Ac + Bf \<br>Ca + Dd &amp; Cb + De &amp; Cc + Df \<br>Ea + Fd &amp; Eb + Fe &amp; Ec + Ff<br>\end{bmatrix}.<br>$$<br><strong>矩阵的乘法满足以下规律：</strong></p>
-<ol>
-<li>可乘条件：前矩阵的 <strong>列数</strong> &#x3D; 后矩阵的 <strong>行数</strong>，否则无法运算；</li>
-<li>结果形状： $n \times m$  矩阵与  $m \times k$  矩阵相乘 ，结果为 $n \times k$  矩阵；</li>
-<li>不满足交换律：一般情况下  $\bold{AB} \neq \bold{BA}$ ；</li>
-<li>满足结合律： $\bold{ {(AB)C &#x3D; A(BC)} }$ 。</li>
-</ol>
-<h4 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h4><p>将矩阵  $\bold A &#x3D; [a_{ij}]$  的 <strong>行与列互换</strong>，得到的新矩阵称为  $\bold A$  的转置矩阵，记为  $\bold A^T$  或  $\tilde{\bold A}$ ，其矩阵元满足：</p>
-<p> $(\bold A^T)<em>{ij} &#x3D; a</em>{ji}$ </p>
-<p>以$2\times3$ 矩阵  $\bold A &#x3D; \begin{bmatrix} a &amp; b &amp; c \ d &amp; e &amp; f \end{bmatrix}$ 为例，则： $\bold A^T &#x3D; \begin{bmatrix} a &amp; d \ b &amp; e \ c &amp; f \end{bmatrix}$ </p>
-<p><strong>转置矩阵满足以下规律：</strong></p>
-<ol>
-<li><p>两次转置矩阵等于其自身 $(\bold A^T)^T &#x3D; \bold A$ ；</p>
-</li>
-<li><p>矩阵相加后的转置矩阵等于两转置矩阵的相加 $(\bold A + \bold B)^T &#x3D; \bold A^T + \bold B^T$ ；</p>
-</li>
-<li><p>矩阵数乘的转置矩阵等于其转置矩阵的数乘 $(\lambda \bold A)^T &#x3D; \lambda \bold A^T$ ；</p>
-</li>
-<li><p>乘积的转置等于转置的反向乘积 $(\bold A\bold B)^T &#x3D; \bold B^T \bold A^T$ 。</p>
-</li>
-</ol>
-<h4 id="转置共轭矩阵"><a href="#转置共轭矩阵" class="headerlink" title="转置共轭矩阵"></a>转置共轭矩阵</h4><p>先对矩阵  $\bold A$  取转置  $\bold A^T$ ，再对每个矩阵元取 <strong>共轭复数</strong>，得到的新矩阵称为转置共轭矩阵或厄米(Hermite)共轭矩阵（记为  $\bold A^H$  或  $\bold A^\dagger$ ），其矩阵元满足：$(\bold A^H)<em>{ij} &#x3D; a</em>{ji}^<em>$ ，$a^</em>$ 表示复数 $a$  的共轭，实数的共轭为其本身。</p>
-<p>以$2\times2$ 复矩阵  $\bold A &#x3D; \begin{bmatrix} 1 &amp; 2i \ i &amp; 2 \end{bmatrix}$ 为例，则其转置共轭矩阵： $\bold A^H &#x3D; \begin{bmatrix} 1^* &amp; i^* \ (2i)^* &amp; 2^* \end{bmatrix} &#x3D; \begin{bmatrix} 1 &amp; -i \ -2i &amp; 2 \end{bmatrix}$ 。</p>
-<p><strong>转置共轭矩阵满足以下规律：</strong></p>
-<ol>
-<li>两次转置共轭矩阵等于其自身 $(\bold A^H)^H &#x3D; \bold A$ ；</li>
-<li>乘积的转置共轭 &#x3D; 转置共轭的反向乘积$(\bold A\bold B)^H &#x3D; \bold B^H \bold A^H$ 。</li>
-</ol>
-<h4 id="矩阵的分块运算"><a href="#矩阵的分块运算" class="headerlink" title="矩阵的分块运算"></a>矩阵的分块运算</h4><p>将高阶矩阵可分割为若干低阶子矩阵，把子矩阵当作单个矩阵元进行运算，简化高阶矩阵的计算。这一过程中各个子矩阵依旧满足上述矩阵运算中矩阵元的运算规律。</p>
-<p>以$3\times3$ 矩阵$\bold A$为例，对其进行分块的一种方法如下：<br>$$<br>\begin{bmatrix}<br>a_{11}&amp;a_{12}&amp;a_{13}\<br>a_{21}&amp;a_{22}&amp;a_{23}\<br>a_{31}&amp;a_{32}&amp;a_{33}\<br>\end{bmatrix}<br>\equiv<br>\begin{bmatrix}<br>a_{11}&amp; \begin{bmatrix}a_{12}&amp; a_{13}\end{bmatrix}\<br>\begin{bmatrix}a_{21}\a_{31} \end{bmatrix}&amp;<br>\begin{bmatrix}<br>a_{22}&amp;a_{23}\<br>a_{32}&amp;a_{33}\end{bmatrix}<br>\end{bmatrix}<br>$$</p>
-<h2 id="行矩阵、列矩阵和Dirac符号"><a href="#行矩阵、列矩阵和Dirac符号" class="headerlink" title="行矩阵、列矩阵和Dirac符号"></a>行矩阵、列矩阵和Dirac符号</h2><p>行矩阵和列矩阵是矩阵的特殊形式。在$n$维空间中的矢量有$n$个相互正交的分量，正好可用一个行矩阵或列矩阵表示。行矩阵和列矩阵其核心本质是<strong>矢量的矩阵化表示</strong>——因完全满足矢量的定义、运算规则和物理意义，在数学与量子化学中被直接视为矢量（行矢、列矢），是连接矩阵运算与矢量空间的关键桥梁。</p>
-<h3 id="行矩阵，行矢"><a href="#行矩阵，行矢" class="headerlink" title="行矩阵，行矢"></a>行矩阵，行矢</h3><p>仅有<strong>一行</strong>的矩阵称为行矩阵（Row Matrix），元素按水平方向排列，对应矢量的“行矢”（Row Vector）。 Dirac 把行矢叫做左矢(bra vector),用$\bra \quad$ 表示。</p>
-<p>设行矩阵有  $n$  个元素，其一般形式为：</p>
-<p> $\bold{A} \equiv [a_i] \equiv \left[ a_1 \quad a_2\quad \cdots\quad a_n \right]\equiv  \langle\bold A|^*$ </p>
-<h3 id="列矩阵，列矢"><a href="#列矩阵，列矢" class="headerlink" title="列矩阵，列矢"></a>列矩阵，列矢</h3><p>仅有<strong>一列</strong>的矩阵称为列矩阵（Column Matrix），元素按垂直方向排列，对	应矢量的“列矢”（Column Vector）。Dirac 把列矢叫做右矢(ket vector),用$\ket \quad$ 表示，左矢和右矢互为转置共轭矩阵</p>
-<p>设列矩阵有  $n$  个元素，其一般形式为：</p>
-<p> $\bold{B} \equiv {b_i}\equiv\begin{bmatrix} b_1 \ b_2 \ \vdots \ b_n \end{bmatrix}\equiv |\bold B\rangle \equiv \left[ b_1 \quad b_2 \quad \cdots \quad b_n \right]^T$ </p>
-<h3 id="行-列矩阵的矢量性"><a href="#行-列矩阵的矢量性" class="headerlink" title="行&#x2F;列矩阵的矢量性"></a>行&#x2F;列矩阵的矢量性</h3><p>矢量的本质是“<strong>具有确定分量、满足线性运算规则的有序集合</strong>”，而行矩阵和列矩阵完全契合这一本质。</p>
-<p>矢量的核心是“有序分量”：无论是二维矢量  $\vec{v} &#x3D; (v_x, v_y)$ 、三维矢量  $\vec{w} &#x3D; (w_x, w_y, w_z)$ ，还是更高维的抽象矢量，本质都是“按固定顺序排列的一组数”。而行&#x2F;列矩阵的元素天然满足“有序性”：行矩阵  $\left[ a_1 \quad a_2 \quad \cdots \quad a_n \right]$  中， $a_1, a_2, …, a_n$  是按“左到右”顺序排列的分量；列矩阵 ${b_1 \quad b_2 \quad \dots \quad b_n}$  中， $b_1, b_2, …, b_n$  是按“上到下”顺序排列的分量。</p>
-<p>矢量的加减、数乘，内积与行&#x2F;列矩阵的运算规则完全一致，满足矢量空间的公理； 同时两种运算都满足交换律（ $\vec{v} + \vec{w} &#x3D; \vec{w} + \vec{v}$ ）、结合律（ $k(\vec{v} + \vec{w}) &#x3D; k\vec{v} + k\vec{w}$ ）。</p>
-<p><strong>在后面我们会从平面旋转系$SO(2)$中介绍列矩阵与矢量的同构性。</strong></p>
-<p>虽然行向量和列向量作为向量空间是同构的，但它们在参与矩阵乘法时扮演不同的角色，这体现了它们在线性映射中的不同地位。</p>
-<h4 id="列向量（列矩阵）通常被视为矢量本身。"><a href="#列向量（列矩阵）通常被视为矢量本身。" class="headerlink" title="列向量（列矩阵）通常被视为矢量本身。"></a><strong>列向量</strong>（列矩阵）通常被视为<strong>矢量本身</strong>。</h4><p>线性变换 $T: \mathbb{R}^n \to \mathbb{R}^m$可以用一个$ m \times n $矩阵 $\bold A$表示。对列向量 $\mathbf{x} \in \mathbb{R}^n$，变换结果为：</p>
-<p>$$<br>\mathbf{y} &#x3D; \bold A \mathbf{x}<br>$$</p>
-<p>这里 $\mathbf{x}$ 是 $n \times 1$ 列矩阵，$\mathbf{y}$ 是 $m \times 1$列矩阵。</p>
-<h4 id="行向量（行矩阵）通常被视为对偶矢量（线性泛函）。"><a href="#行向量（行矩阵）通常被视为对偶矢量（线性泛函）。" class="headerlink" title="行向量（行矩阵）通常被视为对偶矢量（线性泛函）。"></a><strong>行向量</strong>（行矩阵）通常被视为<strong>对偶矢量</strong>（线性泛函）。</h4><p>一个行向量 $\mathbf{u}^T$（$1 \times n$）可以作用在列向量 $\mathbf{v}$（$n \times 1$）上，给出内积（标量）：<br>$$<br>\mathbf{u}^T \mathbf{v} &#x3D; u_1 v_1 + u_2 v_2 + \dots + u_n v_n<br>$$<br>如果将行向量本身看作矢量，那么它作用于列向量可以视为求内积；但若将行向量视为对偶空间的元素，则这种作用就是自然的配对。</p>
-<h4 id="行矢列矢的内积与双线性形式"><a href="#行矢列矢的内积与双线性形式" class="headerlink" title="行矢列矢的内积与双线性形式"></a><strong>行矢列矢的内积与双线性形式</strong></h4><p>在实数域上，两个矢量 $\mathbf{u}$ 和 $\mathbf{v}$ 的内积通常写为 $\mathbf{u} \cdot \mathbf{v}$。用矩阵表示时，需要将其中一个转置：</p>
-<p>$$<br>\mathbf{u} \cdot \mathbf{v} &#x3D; \mathbf{u}^T \mathbf{v}<br>$$</p>
-<p>这里 $\mathbf{u}^T$ 是行向量，$\mathbf{v} $是列向量。因此内积运算自然地混合了行和列的形式。</p>
-<p>如果两个都是列向量，则内积写作$ \mathbf{u}^T \mathbf{v}$；如果两个都是行向量，则$\mathbf{u} \mathbf{v}^T$ 得到一个矩阵，是外积。所以通常约定矢量默认是列向量，内积通过转置实现。</p>
-<h3 id="行矩阵、列矩阵的运算"><a href="#行矩阵、列矩阵的运算" class="headerlink" title="行矩阵、列矩阵的运算"></a>行矩阵、列矩阵的运算</h3><p>我们先定义两个列矩阵：</p>
-<p>$|\bold X\rangle&#x3D;\bold X&#x3D;{x_i},\quad |{\bold Y}\rangle&#x3D;\bold Y&#x3D;{y_i}$</p>
-<p>根据前文中行矩阵、列矩阵的定义，我们可以得到：<br>$$<br>\langle\bold X|&#x3D;|\bold X\rangle^H&#x3D;[x_i^*]<br>$$</p>
-<h4 id="左矢与右矢的乘积"><a href="#左矢与右矢的乘积" class="headerlink" title="左矢与右矢的乘积"></a>左矢与右矢的乘积</h4><p>在$n$维复空间中，矢量$\bold X$ 和矢量$\bold Y$的标积定义为：<br>$$<br>\bold {\langle X | {Y} }\rangle&#x3D;\bold X ^H \bold Y&#x3D;[x_i^*]{y_i}&#x3D;\sum_{i&#x3D;1}^n x_i^*y_i&#x3D;\bold {\langle Y | { {X} }}\rangle^H<br>$$<br>当矢量$\bold X$ 和矢量$\bold Y$的标积$\bold {\langle X | {Y} }\rangle&#x3D;0$时,称矢量$\bold X$ 和矢量$\bold Y$<strong>正交</strong>；当一组矢量中任何两个都互相正交时,称为正交矢量组。</p>
-<h4 id="右矢与左矢的乘积"><a href="#右矢与左矢的乘积" class="headerlink" title="右矢与左矢的乘积"></a>右矢与左矢的乘积</h4><p>$n$维右矢和$n$维左矢相乘得到一个$n$阶方针，对应矢量的张量积<br>$$<br>\bold {|X\rangle  \langle {Y} }|&#x3D;\begin{bmatrix}y_1\y_2\\cdots\y_n\end{bmatrix}\begin{bmatrix}x^<em>_1&amp;x^</em>_2\cdots&amp;x^<em>_n\end{bmatrix}&#x3D;<br>\begin{bmatrix}y_1x_1^</em>&amp;y_1x_2^<em>&amp;\cdots &amp;y_1x_n^</em>\y_2x_1^<em>&amp;y_2x_2^</em>&amp;\cdots &amp;y_2x_n^<em>\ &amp; &amp;\cdots &amp;\y_nx_1^</em>&amp;y_nx_2^<em>&amp;\cdots &amp;y_nx_n^</em>\end{bmatrix}<br>$$</p>
-<h4 id="矢量的长度（模）"><a href="#矢量的长度（模）" class="headerlink" title="矢量的长度（模）"></a>矢量的长度（模）</h4><p>标积$\bold {\langle X | {X} }\rangle$的平方根称为矢量$\bold X$的长度或模（norm），以$\norm{\bold X}$表示：<br>$$<br>\norm{\bold X}&#x3D;\sqrt{\bold {\langle X | {X} }\rangle}&#x3D;\sqrt{\sum_{i&#x3D;1}^n x_ix_i^*}<br>$$<br>长度为$1$的矢量称为单位矢量。如一组矢量$\bold X_i$ 长度均为$1$且互相正交，则称为 <strong>正交归一矢量组</strong></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%9F%A9%E9%98%B5%E5%85%A5%E9%97%A8/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%BB%AA%E8%AE%BA/">
-        <h2 class="post-title"></h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2026/8/22
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="量子理论发展简史"><a href="#量子理论发展简史" class="headerlink" title="量子理论发展简史"></a>量子理论发展简史</h1><h2 id="从经典物理到旧量子论：量子理论的诞生之路"><a href="#从经典物理到旧量子论：量子理论的诞生之路" class="headerlink" title="从经典物理到旧量子论：量子理论的诞生之路"></a>从经典物理到旧量子论：量子理论的诞生之路</h2><p>19世纪末，经典物理学的大厦看似已经落成。牛顿力学完美描述了宏观物体的运动，麦克斯韦方程组统一了电、磁、光现象，热力学和统计物理也已建立起完整的理论体系。当时的物理学家普遍认为，自然界的一切现象都可以用这套经典理论来解释。</p>
+    
+    <div class="content" v-pre>
+        <h1 id="量子理论发展简史"><a href="#量子理论发展简史" class="headerlink" title="量子理论发展简史"></a>量子理论发展简史</h1><h2 id="从经典物理到旧量子论：量子理论的诞生之路"><a href="#从经典物理到旧量子论：量子理论的诞生之路" class="headerlink" title="从经典物理到旧量子论：量子理论的诞生之路"></a>从经典物理到旧量子论：量子理论的诞生之路</h2><p>19世纪末，经典物理学的大厦看似已经落成。牛顿力学完美描述了宏观物体的运动，麦克斯韦方程组统一了电、磁、光现象，热力学和统计物理也已建立起完整的理论体系。当时的物理学家普遍认为，自然界的一切现象都可以用这套经典理论来解释。</p>
 <p>然而，在“晴朗的天空”边缘，悄然飘来了“两朵乌云”——两个经典物理无法解释的实验现象：<strong>黑体辐射的“紫外灾难”<strong>和</strong>光电效应的奇特规律</strong>。正是这两朵乌云，最终引发了物理学史上最深刻的革命。</p>
 <h3 id="第一朵乌云：黑体辐射与能量量子化"><a href="#第一朵乌云：黑体辐射与能量量子化" class="headerlink" title="第一朵乌云：黑体辐射与能量量子化"></a>第一朵乌云：黑体辐射与能量量子化</h3><h4 id="黑体辐射中经典理论的困境"><a href="#黑体辐射中经典理论的困境" class="headerlink" title="黑体辐射中经典理论的困境"></a>黑体辐射中经典理论的困境</h4><p>要理解黑体辐射的研究缘起，我们需要从“如何定量描述物体间的热量传递”这一核心问题切入——这正是19世纪末物理学家们面临的关键挑战，也成为了量子理论诞生的重要契机。 </p>
 <p>任何物体在任何温度下都会自发地发射电磁波，称为“热辐射”，同时也会吸收外界照射而来的电磁波。热量在不同物体间的传递，本质上就是通过这种热辐射场（以电磁波为载体）完成的。比如我们感受到太阳的热量、靠近火炉时觉得温暖，都是热辐射传递能量的表现。 但要精准描述这种能量传递，就必须先找到热辐射场的“固有特征”——也就是说，<strong>我们需要一个物理量来量化“辐射场本身的能量强度”，而这个强度不应依赖于具体的发射或吸收物体</strong>（毕竟不同物体的辐射、吸收能力差异很大）。这就需要借助“热平衡”和“基尔霍夫定律”的支撑： <strong>当两个物体长期共存且温度不再变化时，它们就处于“热平衡状态”——此时物体发射的辐射能量恰好等于吸收的辐射能量，温度才能保持稳定</strong>。基尔霍夫定律进一步揭示了一个关键规律：在热平衡条件下，<strong>任何物体的“辐射本领”（单位面积、单位时间内发射的辐射能量）与“吸收本领”（吸收的入射辐射能量占总入射能量的比例）的比值，是一个与物体本身无关的常量</strong>。这个常量只由辐射场的温度和辐射的频率（或波长）决定，我们称之为“辐射照度”——它正是我们想要寻找的、描述辐射场固有特征的物理量。</p>
@@ -452,152 +297,13 @@
 </ul>
 <h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><p>[1] Planck M. On an Improvement of Wien’s Equation for the Spectrum[J]. Ann. Physik, 1900, 1: 719-721.</p>
 
-            
-        </div>
     </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%BB%AA%E8%AE%BA/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%BE%A4%E8%AE%BA%EF%BC%8C%E5%A4%8D%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%A4%8D%E5%8F%98%E5%88%86%E6%9E%90/">
-        <h2 class="post-title">群论，复平面和复变分析</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2026/8/21
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="群论"><a href="#群论" class="headerlink" title="群论"></a>群论</h1><h2 id="群论：研究对称与结构的语言"><a href="#群论：研究对称与结构的语言" class="headerlink" title="群论：研究对称与结构的语言"></a>群论：研究对称与结构的语言</h2><p>想象一下，你有一套固定的“动作”可以操作某个对象，并且这些动作组合起来总有规律可循。群论就像研究“合法操作”的数学。比如：魔方的转动，时钟的指针转动。</p>
-<h3 id="群的定义"><a href="#群的定义" class="headerlink" title="群的定义"></a>群的定义</h3><p>令有集合 $G$ 及 $\forall x,y,z\in G$ ，在其上定义一个封闭的二元映射&#x2F;运算，集合中任意两个元素经过该二元运算所得结果依然属于一个群：</p>
-<p> $<em>: G \times G \to G$ ， $(x,y) \mapsto x</em>y$ </p>
-<p>该运算满足：</p>
-<ol>
-<li>结合律： $x*(y<em>z)&#x3D;(x</em>y)*z$ </li>
-<li>单位元： $\exists id \in G,\text{s.t.\quad}x<em>id&#x3D;id</em>x&#x3D;x$ </li>
-<li>逆元： $\forall x \in G, \exists x^{-1} \in G, \text{ {s.t}\quad}x*x^{-1}&#x3D;x^{-1}*x&#x3D;id$</li>
-</ol>
-<p>则集合构成一个群，记为 $G(*,id)$ 。</p>
-<h3 id="阿贝尔群：可交换的群"><a href="#阿贝尔群：可交换的群" class="headerlink" title="阿贝尔群：可交换的群"></a>阿贝尔群：可交换的群</h3><p>若群的运算满足交换律称为Abel群，也称交换群，通俗理解起来就是运算顺序不影响结果的群。整数的加法和零构成Abel群，称为加群 $\mathbb{Z}(+,0)$ 。加群是一类特殊的阿贝尔群，加群的运算一般记作$+$（不一定是我们日常接触的加法），单位元记作$0$，逆元$x^{-1}$记作$-x$。</p>
-<p>简单推广，实数上的加法和零点构成加群 $\mathbb{R}(+,0)$ ，非零实数集合的乘法构成阿贝尔群 $\mathbb{R*}(\times,1)$但不是加群 ， $n$ 维实空间对向量加法和原点构成加群 $\mathbb{R}^n(+,(0,…,0))$ 。</p>
-<h3 id="实平面群和复平面群"><a href="#实平面群和复平面群" class="headerlink" title="实平面群和复平面群"></a>实平面群和复平面群</h3><p>前面说到， $n$ 维实空间对向量加法和原点构成加群 $\mathbb{R}^n(+,(0,…,0))$，例如我们熟悉的实平面上的向量加法，构成一个加群 $\mathbb{R}^2(+,(0,0))$ 。我们将实平面的$y$轴转为虚轴$i$就变成了复平面，可以发现这个代数结构可以原封不动地应用在复平面上，构成复平面上的向量加群 ，而且作为集合，实平面 $\mathbb{R}^2$ 和复平面 $\mathbb{C}$ 的点是一一对应的，两者具有相同的向量加法，两个群同构。</p>
-<h3 id="基向量"><a href="#基向量" class="headerlink" title="基向量"></a>基向量</h3><p>高中阶段我们接触到了向量正交分解，任何一个向量可以写成相互垂直的向量线性组合（相加），这就是我们最初接触到“基向量。现在我们来对其进行严格定义：</p>
-<p>实空间 $V$ 中一组向量 ${e_i}$ ，由系数 ${x_i}$ 决定了线性组合 $\sum_{i&#x3D;1}^{n}x_ie_i$ ：</p>
-<ul>
-<li>若 $\forall e\in {e_i}$ 都不能表示为其它向量的线性组合，则称 ${e_i}$ 为线性无关；</li>
-<li>若 $\forall v \in V$ 都可以表示为线性无关向量集 ${e_i}$ 的线性组合，称 ${e_i}$ 为空间的基，其中的元素称为基向量。</li>
-</ul>
-<p>我们来用熟悉的三维空间向量来解释这两条定义。平面中的单位向量$\vec{i}&#x3D;(1,0,0)\quad\vec{j}&#x3D;(0,1,0)\quad \vec{k}&#x3D;(0,0,1)$，其中任意一个单位向量都不能用其余两个单位向量表示，符合第一条定义；而在空间中任取一条向量$\vec{v}&#x3D;(x,y,z)$，都可以表示成$\vec{v}&#x3D;x\vec{i}+y\vec{j}+z\vec{k}$，符合第二条定义。故向量$\vec{i},\vec{j},\vec{k}$构成三维空间的一组基向量。</p>
-<p>实平面 $\mathbb{R}^2$ 的自然基是 $(1,0)$ 和 $(0,1)$ ，作为类比，复平面的自然基是 $1$ 和 $i$ 。于是我们发现从向量空间的角度看，实平面和复平面也是类似的，事实上两者在向量空间中的向量加法也是一致的。</p>
-<h1 id="平面旋转群"><a href="#平面旋转群" class="headerlink" title="平面旋转群"></a>平面旋转群</h1><p>我们现在再回到老本行，矩阵和向量部分。在前面我们简单的提了一嘴，列矩阵可以看做一组向量，但是并没有做详细的解释。</p>
-<img src="矩阵入门.assets/image-20260109101032087.png" alt="image-20260109101032087" style="zoom: 33%;" />
-
-<p>回到这幅熟悉的图中，我们知道矩阵最初就是为了方便研究平面中的旋转操作而发明的一种工具。</p>
-<p>在平面直角坐标系$xOy$中任选点$P(x,y)$，随后将坐标系逆时针绕原点$O$旋转$\theta$得到另一同原点坐标系，在该系中$(x’Oy’)$中变为$P(x’,y’)$，其变换关系如下：<br>$$<br>\begin{aligned}<br>x’&amp;&#x3D;x\cos\theta+y\sin\theta\<br>y’&amp;&#x3D;-x\sin\theta+y\cos\theta<br>\end{aligned}<br>$$</p>
-<p>我们可以用矩阵来描述这次变换：<br>$$<br>\begin{bmatrix}x’\y’\end{bmatrix}&#x3D;<br>\begin{bmatrix}\cos\theta&amp;\sin\theta\-\sin\theta&amp;\cos\theta\end{bmatrix}\begin{bmatrix}x\y\end{bmatrix}<br>$$<br>如果新的坐标系又逆时针旋转$\varphi$，我们可以继续往后乘，得到<br>$$<br>\begin{bmatrix}x’’\y’’\end{bmatrix}&#x3D;\begin{bmatrix}\cos\varphi &amp;\sin\varphi\-\sin\varphi &amp;\cos\varphi\end{bmatrix}\begin{bmatrix}x’\y’\end{bmatrix}<br>&#x3D;\begin{bmatrix}\cos\varphi &amp;\sin\varphi\-\sin\varphi &amp;\cos\varphi\end{bmatrix}\begin{bmatrix}\cos\theta&amp;\sin\theta\-\sin\theta&amp;\cos\theta\end{bmatrix}\begin{bmatrix}x\y\end{bmatrix}<br>$$<br>在上述例子中，由于我们是逆时针旋转坐标系，相当于顺时针旋转向量$\vec{OP}$， 角度应该为负。在一般研究逆时针旋转向量时应乘的矩阵为：<br>$$<br>\begin{bmatrix} \cos (-\theta) &amp; \sin (-\theta) \ -\sin (-\theta) &amp; \cos (-\theta) \end{bmatrix} &#x3D;\begin{bmatrix} \cos \theta &amp;- \sin \theta \ \sin \theta &amp; \cos \theta \end{bmatrix} &#x3D;\begin{bmatrix} \cos \theta &amp; \sin \theta \ -\sin \theta &amp; \cos \theta \end{bmatrix} ^{-1}<br>$$<br>可以看到，角度为负的反向旋转，矩阵运算对应的是加群的逆元。</p>
-<p>平面旋转作为对向量的变换，和被旋转的向量本身无关，我们只关注角度 $\theta$ 的旋转矩阵，这类矩阵构成了平面旋转群$SO(2)$，$SO(2)$是一个阿贝尔群，和列矩阵是同构的。</p>
-<p>$SO(2)$上附加运算、单位元、逆元的结构，也可以构成一个加群。</p>
-<p> $\forall \alpha,\beta \in \mathbb{R}$ ，两个旋转的合成等同于分别旋转，且可以交换旋转顺序：</p>
-<p> $\begin{bmatrix} \cos (\alpha+\beta) &amp; -\sin (\alpha+\beta) \ \sin (\alpha+\beta) &amp; \cos (\alpha+\beta) \end{bmatrix} &#x3D;\begin{bmatrix} \cos \alpha &amp; -\sin \alpha \ \sin \alpha &amp; \cos \alpha \end{bmatrix} \begin{bmatrix} \cos \beta &amp; -\sin \beta \ \sin \beta &amp; \cos \beta \end{bmatrix}$ </p>
-<p> $&#x3D;\begin{bmatrix} \cos \beta &amp; -\sin \beta \ \sin \beta &amp; \cos \beta \end{bmatrix} \begin{bmatrix} \cos \alpha &amp; -\sin \alpha \ \sin \alpha &amp; \cos \alpha \end{bmatrix} &#x3D;\begin{bmatrix} \cos (\beta+\alpha) &amp; -\sin (\beta+\alpha) \ \sin (\beta+\alpha) &amp; \cos (\beta+\alpha) \end{bmatrix}$ </p>
-<p>我们看到，加群 $\mathbb{R}(+,0)$ 所具有的交换性，在$SO(2)$中也得到保持。</p>
-<p>当 $\theta&#x3D;0$ 时，记：</p>
-<p> $\begin{bmatrix} \cos \theta &amp; -\sin \theta \ \sin \theta &amp; \cos \theta \end{bmatrix} &#x3D;\begin{bmatrix} \cos 0 &amp; -\sin 0 \ \sin 0 &amp; \cos 0 \end{bmatrix} &#x3D;\begin{bmatrix} 1 &amp; 0 \ 0 &amp; 1 \end{bmatrix} &#x3D; I$ </p>
-<p>这是平面单位矩阵，作用于向量时是恒同的，换句话说，对向量进行了角度为 $\theta&#x3D;0$ 的平面旋转。这里对应了加群的单位元 $0$ 。</p>
-<p>以上我们说明了$SO(2) (\cdot,I)$ 是一个Abel群，其中的乘法为矩阵乘法。</p>
-<h1 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h1><p>我们知道虚数单位 $i&#x3D;\sqrt{-1}$，知道De Moivre定理 ，但“虚”数依然人如其名，在生活中看不见摸不着，总会让人感觉莫名其妙。我们可以换个角度考虑，把它当做一个映射函数，有 $i^2&#x3D;-1$ 。</p>
-<p>从映射的角度看，如果 $i$ 是一种映射，则它的平方是两次映射的合成，其结果是得到了逆元。我们可以想象通过两次操作，将一个正数镜像为它的逆（取负号）。我们在后面欧拉公式中会讲到，通过引入虚数可以把复杂的包含各种相位三角函数统一化，转变为简单的指数函数形式，在分析中给我们带来很多方便。</p>
-<h2 id="复数乘法"><a href="#复数乘法" class="headerlink" title="复数乘法"></a>复数乘法</h2><p>复数乘法可以认为是在 $\mathbb{R}^2$ 上附加了平面旋转群的结构，即单位向量的复数乘法。平面旋转群本质上同构于圆周上的加群，将来可以过渡到抽象调和分析。</p>
-<p>复数乘法为： $(a+ib)(c+id)&#x3D;(ac-bd)+i(ad+bc)$ ，这在我们的直觉上也符合整式乘法。令：</p>
-<p> $u&#x3D;\frac{a+ib}{\sqrt{a^2+b^2} }&#x3D;\cos\alpha + i\sin\alpha$ ， $v&#x3D;\frac{c+id}{\sqrt{c^2+d^2} } &#x3D; \cos\beta +i\sin\beta$ </p>
-<p>则有： $(a+ib)(c+id)&#x3D;\sqrt{a^2+b^2}\sqrt{c^2+d^2}uv$ </p>
-<p>显然$u,v$长度均为单位向量，复数乘法可以分解为模的乘积和单位向量的乘积两部分，单位向量的乘积有：</p>
-<p> $uv&#x3D;(\cos\alpha + i\sin\alpha)(\cos\beta +i\sin\beta)$ </p>
-<p> $&#x3D;(\cos\alpha\cos\beta - \sin\alpha\sin\beta)+i(\cos\alpha\sin\beta + \sin\alpha\cos\beta)$ </p>
-<p>这里用到了中学的三角函数公式。改写成矩阵乘法：</p>
-<p> $uv&#x3D;\begin{bmatrix} \cos\alpha\cos\beta - \sin\alpha\sin\beta \ \cos\alpha\sin\beta + \sin\alpha\cos\beta\end{bmatrix} &#x3D;\begin{bmatrix} \cos\alpha &amp; - \sin\alpha \ \sin\alpha &amp; \cos\alpha\end{bmatrix} \begin{bmatrix} \cos\beta \ \sin\beta\end{bmatrix}$ </p>
-<p>用线性代数的语言解释，即单位圆上角度为 $\beta$ 的单位向量，在角度为 $\alpha$ 的平面旋转变换矩阵的作用下，得到了角度为 $(\alpha+\beta)$ 的单位向量。</p>
-<p>于是我们现在知道，复数的定义是保持了平面旋转的代数结构。</p>
-<h2 id="Euler公式"><a href="#Euler公式" class="headerlink" title="Euler公式"></a>Euler公式</h2><p>在 $\mathbb{R}$ 上定义的光滑（无限次可导）函数的全体记为 $C^\infty(\mathbb{R})$ ，那么其中的一个元素 $f \in C^\infty(\mathbb{R})$ 就是一个光滑函数。将求导视为一个算子 $\partial &#x3D; \frac{d}{d\theta}$ ，则它相当于一个从 $C^\infty(\mathbb{R})$ 到 $C^\infty(\mathbb{R})$ 的映射：</p>
-<p> $\partial: C^\infty(\mathbb{R}) \to C^\infty(\mathbb{R})$ ， $f \mapsto \partial f &#x3D; \frac{df(x)}{dx}$ </p>
-<p>在所有的光滑函数中，我们希望有一种特殊的函数可以满足：一个函数的导数等于它自身。我们知道指数函数就满足这个条件，即： $\partial e^x &#x3D; e^x$ 。</p>
-<p>通过麦克劳林级数展开，我们可以得到指数函数$e^x$的展开式：</p>
-<p>$$<br>e^x&#x3D;\sum_{n&#x3D;0}^\infty\frac{x^n}{n!}&#x3D;1 + \frac{x}{1!} + \frac{x^2}{2!} +\frac{x^3}{3!}+\dots\<br>$$<br>对 $e^x$ 求导，相当于对级数的每一项求导，其结果仍然等于它本身：</p>
-<p>$$<br>\frac{de^x}{dx}&#x3D;\frac{d}{dx}\sum_{n&#x3D;0}^\infty\frac{x^n}{n!} &#x3D;\sum_{n&#x3D;0}^\infty \frac{d}{dx}\frac{x^n}{n!} &#x3D;\sum_{n&#x3D;1}^\infty \frac{x^{(n-1)} }{(n-1)!} &#x3D;\sum_{n&#x3D;0}^\infty\frac{x^n}{n!}&#x3D;e^x<br>$$</p>
-<p>这一良好的特性，需要靠Euler公式推广到 $C^\infty(\mathbb{C})$ 上。</p>
-<p>$\sin x$和$\cos x$也有着相似的性质：两个三角函数的$n$阶导数呈现非常规律的周期性。我们把目光投入到这两个有没三角函数的麦克劳林级数展开上，注意到实域中的三角函数可以用级数展开为：<br>$$<br>\begin{aligned}<br>\cos x&#x3D;&amp;\sum_{n&#x3D;0}^\infty\dfrac{(\cos x)^{(n’)} }{n!}\cdot x^n&#x3D;1 - \frac{x^2}{2!} + \frac{x^4}{4!} +\dots\\<br>\sin x&#x3D;&amp;\sum_{n&#x3D;0}^\infty\dfrac{(\sin x)^{(n’)} }{n!}\cdot x^n&#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} +\dots<br>\end{aligned}<br>$$<br>可以发现这两个函数的每一项展开都是$e^x$ 函数展开中的项，只是正负号的区别。此时我们的虚数$i$就派上了用场，进一步观察可以把两个函数写作：</p>
-<p>$$<br>\begin{aligned}<br>\cos x &#x3D;&amp; (ix)^0 + \frac{(ix)^2}{2!} + \frac{(ix)^4}{4!} + \dots\\<br>i\sin x &#x3D;&amp; ix + \frac{(ix)^3}{3!} + \frac{(ix)^5}{5!} +\dots<br>\end{aligned}<br>$$<br>上下相加：</p>
-<p>$$<br>\cos x + i\sin x &#x3D; (ix)^0 + \frac{(ix)^2}{2!} + \frac{(ix)^4}{4!} + … + ix + \frac{(ix)^3}{3!} + \frac{(ix)^5}{5!} + \dots&#x3D;\sum_{n&#x3D;0}^\infty\frac{(ix)^n}{n!}<br>$$<br>它相当于把 $ix$ 作为变量给级数形式的指数函数。我们得到了Euler公式的形式化表达。当然严格的证明还需要复级数的知识，请参考有关教材。通过Euler公式得到的指数函数，在复域上完整的形式为：</p>
-<p> $e^{a+ib} &#x3D; e^a(\cos b + i\sin b)$ </p>
-<p>考虑复求导算子：</p>
-<p> $\partial: C^\infty(\mathbb{C}) \to C^\infty(\mathbb{C})$ ， $f \mapsto \partial f &#x3D; \frac{df(x)}{dx}$ </p>
-<p>在所有的光滑函数中，我们希望有一种特殊的函数可以满足：一个函数的导数等于它自身，而复指数函数就满足这个条件，即： $\partial e^x &#x3D; e^x$ ，将级数展开即可证明。</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2026/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6-%E7%BE%A4%E8%AE%BA%EF%BC%8C%E5%A4%8D%E5%B9%B3%E9%9D%A2%E5%92%8C%E5%A4%8D%E5%8F%98%E5%88%86%E6%9E%90/" class="go-post">阅读全文</a>
-</div>
-
-
-        <div class="page-current">
     
-    <span class="current">1</span>
     
     
     
     
-</div>
-
-    </div>
     
-    <div id="home-card">
-        <div id="card-style">
-    <div id="card-div">
-        <div class="avatar">
-            <img src="/images/avatar.jpg" alt="avatar" />
-        </div>
-        <div class="name">Frostree</div>
-        <div class="description">
-            <p>Description<br>…</p>
-
-        </div>
-        
-        
-        <div class="friend-links">
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://www.cnblogs.com/little-red">My Cnblog</a>
-            </div>
-            
-            <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://maple276.github.io/">Maple276</a>
-            </div>
-            
-        </div>
-        
-    </div>
-</div>
-
-    </div>
     
 </div>
 
@@ -629,6 +335,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
