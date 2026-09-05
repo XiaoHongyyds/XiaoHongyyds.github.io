@@ -315,6 +315,153 @@
     box-shadow: 0 0 5px #d9d9d9;
     transform: translate(-5px, -5px);
 }
+#home-posts .post .description .content {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+#home-scroll-arrow {
+    align-items: center;
+    animation: scroll-arrow-bounce 2s infinite;
+    background: #fffffff2;
+    border-radius: 50%;
+    bottom: 0;
+    box-shadow: 0 0 18px #00000026;
+    color: #5c6b72;
+    cursor: pointer;
+    display: flex;
+    font-size: 22px;
+    height: 56px;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 50%);
+    width: 56px;
+    z-index: 3;
+}
+#home-scroll-arrow:hover {
+    color: #66afef;
+}
+#back-to-top {
+    align-items: center;
+    background: #fffffff2;
+    border-radius: 50%;
+    bottom: 12vh;
+    box-shadow: 0 0 15px #00000026;
+    color: #5c6b72;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    height: 46px;
+    justify-content: center;
+    position: fixed;
+    right: 30px;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+    width: 46px;
+    z-index: 1003;
+}
+#back-to-top:hover {
+    background: #66afef;
+    color: #fff;
+    transform: translateY(-3px);
+}
+#particles-canvas {
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: -2;
+}
+#toc-toggle {
+    align-items: center;
+    background: #fffffff2;
+    border-radius: 50%;
+    bottom: calc(12vh + 60px);
+    box-shadow: 0 0 15px #00000026;
+    color: #5c6b72;
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    height: 46px;
+    justify-content: center;
+    position: fixed;
+    right: 30px;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+    width: 46px;
+    z-index: 1003;
+}
+#toc-toggle:hover {
+    background: #66afef;
+    color: #fff;
+    transform: translateY(-3px);
+}
+#post-toc {
+    background: #fffffff2;
+    border-radius: 10px;
+    box-shadow: 0 0 18px #0000001f;
+    box-sizing: border-box;
+    font-size: 13px;
+    max-height: 65vh;
+    overflow: auto;
+    padding: 15px 20px;
+    position: fixed;
+    right: 20px;
+    top: 12vh;
+    width: 300px;
+    z-index: 1002;
+}
+#post-toc .toc-title {
+    border-bottom: 1px solid #e5e5e5;
+    color: #1e3e3f;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+}
+#post-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#post-toc li {
+    margin: 4px 0;
+}
+#post-toc li a {
+    color: #5c6b72;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#post-toc li a:hover {
+    color: #66afef;
+}
+#post-toc li.toc-h1 {
+    font-weight: bold;
+}
+#post-toc li.toc-h2 {
+    padding-left: 0;
+}
+#post-toc li.toc-h3 {
+    padding-left: 14px;
+}
+#post-toc li.toc-h4 {
+    padding-left: 28px;
+}
+#post-toc li.toc-h5 {
+    padding-left: 42px;
+}
+#post-toc li.toc-h6 {
+    padding-left: 56px;
+}
+@keyframes scroll-arrow-bounce {
+    0%,
+    100% {
+        transform: translate(-50%, 30%);
+    }
+    50% {
+        transform: translate(-50%, 60%);
+    }
+}
 #home-posts-wrap {
     background: transparent;
     border-radius: 10px;
@@ -722,7 +869,11 @@ h6 {
     color: #1e3e3f;
     font-weight: bold;
     margin: 15px 0;
+    scroll-margin-top: 60px;
     word-break: keep-all;
+}
+html {
+    scroll-behavior: smooth;
 }
 h1 {
     font-size: 30px;
@@ -862,8 +1013,8 @@ ol li {
         width: 500px;
     }
     #home-posts {
-        margin-right: 50px;
-        width: 850px;
+        margin-right: 40px;
+        width: calc(100% - 340px);
     }
     #home-posts .post {
         margin-bottom: 25px;
@@ -873,7 +1024,8 @@ ol li {
         padding: 20px 0;
     }
     #home-posts-wrap {
-        max-width: 1200px;
+        width: 88%;
+        max-width: 1600px;
     }
     #menu #desktop-menu {
         display: block;
@@ -884,7 +1036,7 @@ ol li {
     .article,
     #archives,
     #footer #footer-wrap {
-        width: 900px;
+        width: min(1500px, 78%);
     }
     .home-posts-wrap-no-card #home-posts {
         margin: auto;
@@ -907,6 +1059,10 @@ ol li {
     }
 }
 @media (max-width: 900px) {
+    #post-toc {
+        right: 10px;
+        width: calc(100vw - 20px);
+    }
     #home-head #home-info {
         height: 350px;
         width: 350px;

@@ -7,6 +7,7 @@ const app = Vue.createApp({
             showMenuItems: false,
             menuColor: false,
             scrollTop: 0,
+            tocShow: false,
             renderers: [],
         };
     },
@@ -22,6 +23,9 @@ const app = Vue.createApp({
     methods: {
         render() {
             for (let i of this.renderers) i();
+        },
+        backTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         },
         handleScroll() {
             let wrap = this.$refs.homePostsWrap;
